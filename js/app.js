@@ -36,3 +36,13 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+function flipCard(event){
+	event.target.className = "card open show";
+}
+
+document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event);})
+
+
+
+
