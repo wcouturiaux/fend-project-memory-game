@@ -37,27 +37,38 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
+//Global Variable Declarations
+let openCardList = [];
+let count = 0;
+
+
 function flipCard(event){
 	if (event.target.className === 'card'){
 		event.target.className = "card open show";
 	}
 }
 
-let openCardList = [];
+
 function openCards(event){
 	openCardList.push(event.target.innerHTML.toString());
 	if (openCardList.length === 2){
 		if (openCardList[0] === openCardList[1]){
 			 [].forEach.call(document.querySelectorAll('.card.open.show'),function(item){item.className="card match";});
 			 openCardList.length = 0;
+			 numMoves();
 		}
 		else{
 			setTimeout(function(){[].forEach.call(document.querySelectorAll('.card.open.show'),function(item){item.className="card";});},1000);
 			openCardList.length = 0;
+			numMoves();
 		}
 	}
 }
 
+function numMoves(){
+	count +=1;
+	document.querySelector('.moves').textContent=count;
+}
 
 
 document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event); openCards(event);})
