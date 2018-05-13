@@ -44,8 +44,14 @@ function flipCard(event){
 let openCardList = new Array(0);
 function openCards(event){
 	openCardList.push(event.target.innerHTML.toString());
-
+	if (openCardList.length === 2){
+		if (openCardList[0] === openCardList[1]){
+			 [].forEach.call(document.querySelectorAll('.card.open.show'),function(item){item.className="card match";})
+		}
+	}
 }
+
+
 
 document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event); openCards(event);})
 
