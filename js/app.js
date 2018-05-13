@@ -41,7 +41,13 @@ function flipCard(event){
 	event.target.className = "card open show";
 }
 
-document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event);})
+let openCardList = new Array(0);
+function openCards(event){
+	openCardList.push(event.target.innerHTML.toString());
+
+}
+
+document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event); openCards(event);})
 
 
 
