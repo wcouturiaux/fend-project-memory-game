@@ -43,7 +43,7 @@ function flipCard(event){
 	}
 }
 
-let openCardList = new Array(0);
+let openCardList = [];
 function openCards(event){
 	openCardList.push(event.target.innerHTML.toString());
 	if (openCardList.length === 2){
