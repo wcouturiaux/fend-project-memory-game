@@ -38,7 +38,9 @@ function shuffle(array) {
  */
 
 function flipCard(event){
-	event.target.className = "card open show";
+	if (event.target.className === 'card'){
+		event.target.className = "card open show";
+	}
 }
 
 let openCardList = new Array(0);
