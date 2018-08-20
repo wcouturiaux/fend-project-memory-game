@@ -40,22 +40,33 @@ function shuffle(array) {
 //Global Variable Declarations
 let openCardList = [];
 let count = 0;
+let numMatches = 0;
 
 
 function flipCard(event){
 	if (event.target.className === 'card'){
-		event.target.className = "card open show";
+		event.target.className = 'card open show';
 	}
 }
 
+function restartGame(event){
+
+	if (event.target.className === 'fa fa-repeat'){
+		let faceCards = document.querySelectorAll('.card.match,.card.open.show');
+		[].forEach.call(faceCards,function(item){item.className="card";})
+		faceCards.length =0;
+		document.querySelector('.moves').textContent=0;
+	}
+}
 
 function openCards(event){
 	openCardList.push(event.target.innerHTML.toString());
 	if (openCardList.length === 2){
 		if (openCardList[0] === openCardList[1]){
-			 [].forEach.call(document.querySelectorAll('.card.open.show'),function(item){item.className="card match";});
+			 [].forEach.call(document.querySelectorAll('.card.open.show'),function(item){item.className='card match';});
 			 openCardList.length = 0;
 			 numMoves();
+			 numMatches += 1;
 		}
 		else{
 			setTimeout(function(){[].forEach.call(document.querySelectorAll('.card.open.show'),function(item){item.className="card";});},1000);
@@ -72,7 +83,6 @@ function numMoves(){
 
 
 document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event); openCards(event);})
-
-
+document.querySelector('.score-panel').addEventListener('click', function(event){restartGame(event);})
 
 
