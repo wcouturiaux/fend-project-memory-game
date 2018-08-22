@@ -61,17 +61,18 @@ function restartGame(event){
 
 function openCards(event){
 	openCardList.push(event.target.innerHTML.toString());
+	if (openCardList.length === 1){
+		numMoves();
+	}
 	if (openCardList.length === 2){
 		if (openCardList[0] === openCardList[1]){
 			 [].forEach.call(document.querySelectorAll('.card.open.show'),function(item){item.className='card match';});
 			 openCardList.length = 0;
-			 numMoves();
 			 numMatches += 1;
 		}
 		else{
 			setTimeout(function(){[].forEach.call(document.querySelectorAll('.card.open.show'),function(item){item.className="card";});},1000);
 			openCardList.length = 0;
-			numMoves();
 		}
 	}
 }
