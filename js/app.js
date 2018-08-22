@@ -81,8 +81,29 @@ function numMoves(){
 	document.querySelector('.moves').textContent=count;
 }
 
+function starRemoval(event){
+	stars = document.querySelectorAll('.fa-star');
+	starCount = count;
+	switch (starCount) {
+		case 10:
+			stars[stars.length-1].className='fa fa-star-o';
+			break;
+		case 13:
+			stars[stars.length-1].className='fa fa-star-o';
+			break;
+		case 16:
+			stars[stars.length-1].className='fa fa-star-o';
+			break;
+		case 19:
+			stars[stars.length-1].className='fa fa-star-o';
+			break;
+		default:
+			break;
+	}
+}
 
-document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event); openCards(event);})
+
+document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event); openCards(event); starRemoval(event);})
 document.querySelector('.score-panel').addEventListener('click', function(event){restartGame(event);})
 
 
