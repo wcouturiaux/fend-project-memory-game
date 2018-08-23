@@ -95,6 +95,6 @@ function starRemoval(event){
 
 
 document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event); openCards(event); starRemoval(event);})
-document.querySelector('.score-panel').addEventListener('click', function(){location.reload();;})
+document.querySelector('.score-panel').addEventListener('click', function(){location.reload();})
 
 
