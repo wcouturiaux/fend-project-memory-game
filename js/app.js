@@ -49,16 +49,6 @@ function flipCard(event){
 	}
 }
 
-function restartGame(event){
-
-	if (event.target.className === 'fa fa-repeat'){
-		let faceCards = document.querySelectorAll('.card.match,.card.open.show');
-		[].forEach.call(faceCards,function(item){item.className="card";})
-		faceCards.length =0;
-		document.querySelector('.moves').textContent=0;
-	}
-}
-
 function openCards(event){
 	openCardList.push(event.target.innerHTML.toString());
 	if (openCardList.length === 1){
@@ -105,6 +95,6 @@ function starRemoval(event){
 
 
 document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event); openCards(event); starRemoval(event);})
-document.querySelector('.score-panel').addEventListener('click', function(event){restartGame(event);})
+document.querySelector('.score-panel').addEventListener('click', function(){location.reload();;})
 
 
