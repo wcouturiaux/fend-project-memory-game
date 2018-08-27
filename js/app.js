@@ -109,5 +109,6 @@ function winGame(event){
 
 document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event); openCards(event); winGame(event);})
 document.querySelector('.score-panel').addEventListener('click', function(){location.reload();})
+document.querySelector('.modal').addEventListener('click', function(event){document.querySelector('.modal').style.display = 'none'; location.reload();})
 
 
