@@ -39,7 +39,7 @@ function shuffle(array) {
 
 //Global Variable Declarations
 let openCardList = [];
-let count = 0;
+let countMoves = 0;
 let numMatches = 0;
 
 
@@ -69,13 +69,16 @@ function openCards(event){
 }
 
 function numMoves(){
-	count +=1;
-	document.querySelector('.moves').textContent=count;
+	countMoves +=1;
+	document.querySelector('.moves').textContent=countMoves;
 }
 
+/*
+* starRemoval changes stars from solid to outline based on number of moves.
+*/
 function starRemoval(){
 	stars = document.querySelectorAll('.fa-star');
-	starCount = count;
+	starCount = countMoves;
 	switch (starCount) {
 		case 10:
 			stars[stars.length-1].className='fa fa-star-o';
@@ -94,6 +97,9 @@ function starRemoval(){
 	}
 }
 
+/*
+* winGame displays modal if all matches are made.
+*/
 function winGame(event){
 	if(numMatches === 8){
 		document.querySelector('.modal').style.display = 'block';
@@ -101,7 +107,7 @@ function winGame(event){
 }
 
 
-document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event); openCards(event);})
+document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event); openCards(event); winGame(event);})
 document.querySelector('.score-panel').addEventListener('click', function(){location.reload();})
 
 
