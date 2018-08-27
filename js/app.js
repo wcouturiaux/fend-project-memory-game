@@ -53,6 +53,7 @@ function openCards(event){
 	openCardList.push(event.target.innerHTML.toString());
 	if (openCardList.length === 1){
 		numMoves();
+		starRemoval();
 	}
 	if (openCardList.length === 2){
 		if (openCardList[0] === openCardList[1]){
@@ -72,7 +73,7 @@ function numMoves(){
 	document.querySelector('.moves').textContent=count;
 }
 
-function starRemoval(event){
+function starRemoval(){
 	stars = document.querySelectorAll('.fa-star');
 	starCount = count;
 	switch (starCount) {
@@ -93,8 +94,14 @@ function starRemoval(event){
 	}
 }
 
+function winGame(event){
+	if(numMatches === 8){
+		document.querySelector('.modal').style.display = 'block';
+	}
+}
 
-document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event); openCards(event); starRemoval(event);})
+
+document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event); openCards(event);})
 document.querySelector('.score-panel').addEventListener('click', function(){location.reload();})
 
 
