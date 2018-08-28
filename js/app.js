@@ -68,6 +68,9 @@ function openCards(event){
 	}
 }
 
+/*
+* Increment moves counter and write value to text content of moves class in html
+*/
 function numMoves(){
 	countMoves +=1;
 	document.querySelector('.moves').textContent=countMoves;
@@ -106,9 +109,17 @@ function winGame(event){
 	}
 }
 
-
+/*
+*Event listener on deck to make appropriate function calls
+*/
 document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event); openCards(event); winGame(event);})
+/*
+*Event listener on score panel to reload game
+*/
 document.querySelector('.score-panel').addEventListener('click', function(){location.reload();})
+/*
+*Event listener on modal to close the modal and reload window/game
+*/
 document.querySelector('.modal').addEventListener('click', function(event){document.querySelector('.modal').style.display = 'none'; location.reload();})
 
 
