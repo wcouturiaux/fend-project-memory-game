@@ -106,6 +106,7 @@ function starRemoval(){
 function winGame(event){
 	if(numMatches === 8){
 		document.querySelector('.modal').style.display = 'block';
+		document.querySelector('.win-text').innerText = 'It took you [time placeholder] to find all matches in ' + countMoves + ' moves.';
 	}
 }
 
