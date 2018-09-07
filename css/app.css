@@ -45,6 +45,14 @@ h1 {
 }
 
 
+.stop-watch{
+
+    float: left;
+    padding-right: 4em;
+
+}
+
+
 /*
  * Styles for the deck of cards
  */
