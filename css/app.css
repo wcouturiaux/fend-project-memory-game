@@ -48,7 +48,7 @@ h1 {
 .stop-watch{
 
     float: left;
-    width: 7em;
+    width: 40%;
 
 }
 
@@ -123,7 +123,7 @@ h1 {
 .score-panel {
 
     text-align: left;
-    width: 345px;
+    width: 640px;
     margin-bottom: 10px;
 
 }
@@ -203,4 +203,31 @@ h1 {
     background-color: #dbff33;
     height: 10vh;
 
+}
+
+@media screen and (max-width: 686px) {
+
+    .score-panel {
+
+        font-size: 3.5vw ;
+        width: 85vw;
+
+    }
+
+
+    .deck {
+
+        width: 95vw;
+        height: 95vw;
+        max-height: 100vh;
+        min-height: 95vw;
+
+    }
+
+
+    .deck .card {
+
+        height: 18vw;
+        width: 18vw;
+    }
 }
