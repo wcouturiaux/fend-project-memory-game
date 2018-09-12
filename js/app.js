@@ -110,9 +110,12 @@ function winGame(event){
 	}
 }
 
-let start = new Date().getTime()
-
-window.setInterval(function(){
+/*
+set start to current clock time update interval on 100ms and calculate time then write to index.html in h:mm:ss format.
+*/
+function runTimer(event){
+	let start = new Date().getTime();
+	window.setInterval(function(){
 	let time = new Date().getTime()-start;
 	let seconds = Math.floor(time/1000)%60%10,
 		tensSecs = Math.floor(time/10000)%6,
@@ -121,8 +124,13 @@ window.setInterval(function(){
 		hours = Math.floor(time/3600000);
 
 	document.getElementById('time').innerText = hours + ':' + tensMins + minutes + ':' + tensSecs + seconds;
-}, 100);
+},100);
+}
 
+/*
+Event listener that executes only on the first click of the deck to start the timer
+*/
+document.querySelector('.deck').addEventListener('click',function(event){event.preventDefault(); runTimer(event)},{once: true});
 /*
 *Event listener on deck to make appropriate function calls
 */
