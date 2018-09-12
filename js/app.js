@@ -105,26 +105,36 @@ function starRemoval(){
 */
 function winGame(event){
 	if(numMatches === 8){
+		window.clearInterval(timer);
+		endTime = document.getElementById('time').innerText;
 		document.querySelector('.modal').style.display = 'block';
-		document.querySelector('.win-text').innerText = 'It took you [time placeholder] to find all matches in ' + countMoves + ' moves.';
+		document.querySelector('.win-text').innerText = 'It took you ' + endTime + ' to find all matches in ' + countMoves + ' moves.';
 	}
 }
 
 /*
-set start to current clock time update interval on 100ms and calculate time then write to index.html in h:mm:ss format.
+Set start to current clock time update interval on 100ms and calculate time then write to index.html in h:mm:ss format.
+Timer functionality adapted from :
+/***************************************************************************************
+*    Author: James Edwards
+*    Date: 2010-06-23
+*    Availability: https://www.sitepoint.com/creating-accurate-timers-in-javascript/
+***************************************************************************************
 */
+
 function runTimer(event){
 	let start = new Date().getTime();
-	window.setInterval(function(){
-	let time = new Date().getTime()-start;
-	let seconds = Math.floor(time/1000)%60%10,
-		tensSecs = Math.floor(time/10000)%6,
-		minutes = Math.floor(time/60000)%60%10,
-		tensMins = Math.floor(time/600000)%6
-		hours = Math.floor(time/3600000);
+	timer = window.setInterval(function(){
+					let time = new Date().getTime()-start,
+						seconds = Math.floor(time/1000)%60%10,
+						tensSecs = Math.floor(time/10000)%6,
+						minutes = Math.floor(time/60000)%60%10,
+						tensMins = Math.floor(time/600000)%6
+						hours = Math.floor(time/3600000);
 
-	document.getElementById('time').innerText = hours + ':' + tensMins + minutes + ':' + tensSecs + seconds;
-},100);
+						document.getElementById('time').innerText = hours + ':' + tensMins + minutes + ':' + tensSecs + seconds;
+					},
+				100);
 }
 
 /*
