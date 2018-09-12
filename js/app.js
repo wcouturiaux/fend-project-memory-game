@@ -110,6 +110,21 @@ function winGame(event){
 	}
 }
 
+let start = new Date().getTime()
+
+window.setInterval(function(){
+	let time = new Date().getTime()-start;
+	let seconds = Math.floor(time/1000)%60%10,
+		tensSecs = Math.floor(time/10000)%6,
+		minutes = Math.floor(time/60000)%60%10,
+		tensMins = Math.floor(time/600000)%6
+		hours = Math.floor(time/3600000);
+	/*if(Math.round(elapsed) == elapsed){
+		elapsed += ':0';
+	}*/
+	document.getElementById('time').innerText = hours + ':' + tensMins + minutes + ':' + tensSecs + seconds;
+}, 100);
+
 /*
 *Event listener on deck to make appropriate function calls
 */
