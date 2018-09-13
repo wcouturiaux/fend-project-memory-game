@@ -2,6 +2,25 @@
  * Create a list that holds all of your cards
  */
 
+let cardsInDeck = document.querySelectorAll('.card'), //create node list of cards
+	deck = document.querySelector('.deck').firstElementChild, //assign first card to deck
+	i = 0;
+
+let cardArray = []; //create array to store card "names"
+//loop through node list and push each inner html (card name) to array
+for (let j = 0; j<cardsInDeck.length; j++){
+	cardArray.push(cardsInDeck[j].innerHTML)
+}
+
+//shuffle Array of card names
+let shuffledCards = shuffle(cardArray);
+
+//while element children exist in deck assign that childs inner html from shuffled array
+while(deck){
+	deck.innerHTML = shuffledCards[i];
+	deck = deck.nextElementSibling;
+	i++;
+}
 
 /*
  * Display the cards on the page
