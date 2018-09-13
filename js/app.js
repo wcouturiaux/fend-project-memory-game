@@ -111,9 +111,6 @@ function starRemoval(){
 		case 16:
 			stars[stars.length-1].className='fa fa-star-o';
 			break;
-		case 19:
-			stars[stars.length-1].className='fa fa-star-o';
-			break;
 		default:
 			break;
 	}
