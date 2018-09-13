@@ -159,11 +159,11 @@ function runTimer(event){
 /*
 Event listener that executes only on the first click of the deck to start the timer
 */
-document.querySelector('.deck').addEventListener('click',function(event){event.preventDefault(); runTimer(event)},{once: true});
+document.querySelector('.deck').addEventListener('click',function(event){event.preventDefault(); if(event.target.className ==='card'){runTimer(event)}},{once: true});
 /*
 *Event listener on deck to make appropriate function calls
 */
-document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); flipCard(event); openCards(event); winGame(event);})
+document.querySelector('.deck').addEventListener('click', function(event){event.preventDefault(); if(event.target.className ==='card'){ flipCard(event); openCards(event); winGame(event)};})
 /*
 *Event listener on score panel to reload game
 */
