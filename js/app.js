@@ -123,8 +123,10 @@ function winGame(event){
 	if(numMatches === 8){
 		window.clearInterval(timer);
 		endTime = document.getElementById('time').innerText;
+		starRating = document.querySelector('.stars').cloneNode(true);
 		document.querySelector('.modal').style.display = 'block';
-		document.querySelector('.win-text').innerText = 'It took you ' + endTime + ' to find all matches in ' + countMoves + ' moves.';
+		document.querySelector('.win-text').innerText = 'It took you ' + endTime + ' to find all matches in ' + countMoves + ' moves and a star rating of ';
+		document.querySelector('.modal-body').appendChild(starRating);
 	}
 }
 
