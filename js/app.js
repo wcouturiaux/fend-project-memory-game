@@ -167,10 +167,14 @@ document.querySelector('.deck').addEventListener('click', function(event){event.
 /*
 *Event listener on score panel to reload game
 */
-document.querySelector('.score-panel').addEventListener('click', function(){location.reload();})
+document.querySelector('.score-panel').addEventListener('click', function(event){event.preventDefault(); location.reload();})
 /*
-*Event listener on modal to close the modal and reload window/game
+*Event listener on modal to close the modal
 */
-document.querySelector('.modal').addEventListener('click', function(event){document.querySelector('.modal').style.display = 'none'; location.reload();})
+document.querySelector('.modal').addEventListener('click', function(event){event.preventDefault(); document.querySelector('.modal').style.display = 'none';})
+/*
+*Event listener to reload page when Play Again button is clicked.
+*/
+document.querySelector('.btn-again').addEventListener('click', function(event){event.preventDefault(); location.reload();})
 
 
