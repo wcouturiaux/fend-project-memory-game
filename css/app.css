@@ -132,7 +132,8 @@ h1 {
 }
 
 
-.score-panel .stars {
+.score-panel .stars,
+.modal-footer .stars {
 
     margin: 0;
     padding: 0;
@@ -142,7 +143,8 @@ h1 {
 }
 
 
-.score-panel .stars li {
+.score-panel .stars li,
+.modal-footer .stars li {
 
     list-style: none;
     display: inline-block;
@@ -154,6 +156,8 @@ h1 {
 
     float: right;
     cursor: pointer;
+    text-align: center;
+    width: 40px;
 
 }
 
@@ -186,10 +190,14 @@ h1 {
 }
 
 
-.modal-header{
+.modal-header,
+.modal-footer {
 
     background-color: #dbff33;
     height: 10vh;
+    padding-left: 1vw;
+    padding-top: .1vw;
+    font-size: 3vw;
 
 }
 
@@ -197,16 +205,10 @@ h1 {
 .modal-body{
 
     height: 20vh;
+    padding: 1.2vw;
 
 }
 
-
-.modal-footer{
-
-    background-color: #dbff33;
-    height: 10vh;
-
-}
 
 @media screen and (max-width: 686px) {
 
