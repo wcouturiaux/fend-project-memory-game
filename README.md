@@ -12,7 +12,7 @@
 
 1. Download or clone repository
 
-2. Navigate to saved to location and open index.html.
+2. Navigate to saved to location and open `index.html`.
 
 3. Click on 'cards' until all matches have been made.
 
